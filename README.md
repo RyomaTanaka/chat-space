@@ -8,6 +8,7 @@
 ### Association
 - has_many :groups, through: :users_groups
 - has_many :messages
+- has_many :users_groups
 
 ## groupsテーブル
 |Column|Type|Options|
@@ -16,6 +17,7 @@
 ### Association
 - has_many :groups, through: :users_groups
 - has_many :messages
+- has_many :users_groups
 
 ## users_groupsテーブル
 |Column|Type|Options|
@@ -29,8 +31,8 @@
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
-|image|string|null: false|
+|text|text||
+|image|string||
 |user_id|integer|null: false, foregin_key: true|
 |group_id|integer|null: false, foregin_key: true|
 ### Association
