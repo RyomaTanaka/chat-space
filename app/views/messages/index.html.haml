@@ -1,0 +1,27 @@
+.wrapper
+  = render 'models/side'
+  .main
+    .main-header
+      .main-header__left-box
+        %h2.main-header__left-box__current-group test
+        %ul.main-header__left-box__member-list
+          Member：
+          %li.main-header__left-box__member test
+      -# %a(href="#")
+      = link_to '#' do
+        .main-header__edit-btn Edit
+    .main-content
+      .messages
+        .message
+          .message__upper-info
+            %p.message__upper-info__talker test
+            %p.message__upper-info__date 2019/09/22(Sun) 15:25:15
+          %p.message__text test
+    .form
+      %form.new_message
+        .input-box
+          %input.input-box__text{type: "text", placeholder: "type a message"}
+          %label.input-box__image{for: "message_image"}
+            %i.fa.fa-image
+            %input.input-box__image__file{type: "file"}
+        %input.submit-btn{type: "submit", value: "Send"}
