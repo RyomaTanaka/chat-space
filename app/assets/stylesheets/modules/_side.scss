@@ -1,0 +1,50 @@
+.side {
+  width: 300px;
+  color: white;
+  float: left;
+}
+
+.side a {
+  color: white;
+}
+
+.side-header {
+  background-color: #253141;
+  height: 100px;
+  align-items: center;
+  display: flex;
+  padding: 0 20px;
+  &__box {
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    &__menu {
+      display: flex;
+      &__new-group {
+        margin-left: 0.3rem;
+      }
+      &__edit-user {
+        margin-left: 0.3rem;
+      }
+    }
+  }
+}
+
+.side-content {
+  height: calc(100vh - 100px);
+  background-color: #2f3e51;
+  padding: 20px 20px 0;
+  overflow: scroll;
+}
+
+.group {
+  margin-bottom: 40px;
+  &__group-name {
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+  &__last-message {
+    font-size: 11px;
+  }
+}
