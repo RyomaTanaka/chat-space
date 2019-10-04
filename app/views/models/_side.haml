@@ -4,13 +4,16 @@
       %p.side-header__box__user-name sample_user
       %ul.side-header__box__menu
         %li.side-header__box__menu__new-group
-          %a(href="#")
+          -# %a(href="#")
+          =link_to '#' do
             %i.fa.fa-edit
         %li.side-header__box__menu__edit-user
-          %a(href="#")
+          -# %a(href="#")
+          =link_to '#' do
             %i.fa.fa-cog
   .side-content
-    %a(href="#")
+    -# %a(href="#")
+    =link_to '#' do
       .group
         %p.group__group-name test-group
         %p.group__last-message test-message
