@@ -1,7 +1,8 @@
 .side
   .side-header
     .side-header__box
-      %p.side-header__box__user-name sample_user
+      %p.side-header__box__user-name 
+        = current_user.name
       %ul.side-header__box__menu
         %li.side-header__box__menu__new-group
           -# %a(href="#")
@@ -9,7 +10,7 @@
             %i.fa.fa-edit
         %li.side-header__box__menu__edit-user
           -# %a(href="#")
-          =link_to '#' do
+          =link_to edit_user_path(current_user) do
             %i.fa.fa-cog
   .side-content
     -# %a(href="#")
