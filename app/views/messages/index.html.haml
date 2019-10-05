@@ -11,16 +11,12 @@
         .main-header__edit-btn Edit
     .main-content
       .messages
-        .message
-          .message__upper-info
-            %p.message__upper-info__talker test
-            %p.message__upper-info__date 2019/09/22(Sun) 15:25:15
-          %p.message__text test
+        = render @messages
     .form
-      %form.new_message
+      = form_for [@group, @message]  do |f|
         .input-box
-          %input.input-box__text{type: "text", placeholder: "type a message"}
-          %label.input-box__image{for: "message_image"}
-            %i.fa.fa-image
-            %input.input-box__image__file{type: "file"}
-        %input.submit-btn{type: "submit", value: "Send"}
+          = f.text_field :text, class: "input-box__text", placeholder: "type a message"
+          = f.label :image, class: "input-box__image" do
+            = fa_icon 'picture-o'
+            = f.file_field :image, class: "input-box__image__file"
+        = f.submit class: "submit-btn", value: "Send"
