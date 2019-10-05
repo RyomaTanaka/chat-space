@@ -5,16 +5,16 @@
         = current_user.name
       %ul.side-header__box__menu
         %li.side-header__box__menu__new-group
-          -# %a(href="#")
-          =link_to '#' do
+          =link_to new_group_path do
             %i.fa.fa-edit
         %li.side-header__box__menu__edit-user
-          -# %a(href="#")
           =link_to edit_user_path(current_user) do
             %i.fa.fa-cog
   .side-content
-    -# %a(href="#")
-    =link_to '#' do
-      .group
-        %p.group__group-name test-group
-        %p.group__last-message test-message
+    .group
+      - current_user.groups.each do |group|  
+        =link_to '#' do
+          %p.group__group-name
+            = group.name
+          %p.group__last-message
+            test-message
