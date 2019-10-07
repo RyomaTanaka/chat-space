@@ -11,10 +11,13 @@
           =link_to edit_user_path(current_user) do
             %i.fa.fa-cog
   .side-content
-    .group
-      - current_user.groups.each do |group|  
-        =link_to '#' do
+    - current_user.groups.each do |group|  
+      =link_to group_messages_path(group) do
+        .group
           %p.group__group-name
             = group.name
           %p.group__last-message
-            test-message
+            -if group.messages.last
+              = group.messages.last.text
+            -else
+              = 'まだメッセージはありません'
