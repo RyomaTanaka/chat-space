@@ -31,16 +31,17 @@ $(function() {
     })
 
     .done(function(data){
-      console.log('success!');
-      console.log(data);
-      console.log(data.image);
       let html = buildHTML(data);
-      $('.messages').append(html);
-      $('#new_message').val('');
-    })
 
+      $('.messages').append(html);
+      $('.input-box__text').val('');
+      $('.submit-btn').removeAttr('disabled');
+      $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight });
+    })
+    
     .fail(function(data){
-      alert('メッセージの送信に失敗しました。');
+      alert('メッセージの送信に失敗しました');
+      $('.submit-btn').removeAttr('disabled');
     })
   })
 })
