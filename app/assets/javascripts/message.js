@@ -1,39 +1,28 @@
 $(function() {
   function buildHTML(message) {
-    let html_image = `<div class="message">
-                  <div class="message__upper-info">
-                    <p class="message__upper-info__talker">
-                      ${message.name}
-                    </p>
-                    <p class="message__upper-info__date">
-                      ${message.time}
-                    </p>
-                  </div>
-                  <p class="message__text">
-                    ${message.text}
-                  </p>
-                  <img src="${message.image}">
-                </div>`
-
-    let html_no_image = `<div class="message">
-                  <div class="message__upper-info">
-                    <p class="message__upper-info__talker">
-                      ${message.name}
-                    </p>
-                    <p class="message__upper-info__date">
-                      ${message.time}
-                    </p>
-                  </div>
-                  <p class="message__text">
-                    ${message.text}
-                  </p>
-                </div>`
-
+    let image = ""
+    
     if (message.image != null) {
-      return html_image
+      image = `<img src="${message.image}">`
     } else {
-      return html_no_image
+      image = ""
     }
+
+    let html = `<div class="message">
+                  <div class="message__upper-info">
+                    <p class="message__upper-info__talker">
+                      ${message.name}
+                    </p>
+                    <p class="message__upper-info__date">
+                      ${message.time}
+                    </p>
+                  </div>
+                  <p class="message__text">
+                    ${message.text}
+                  </p>`
+                  + image
+              + `</div>`
+    return html
   }
 
   $('#new_message').on('submit', function(e) {
