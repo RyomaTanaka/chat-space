@@ -1,12 +1,13 @@
 $(function() {
   function buildHTML(message) {
     let image = ""
-    
-    if (message.image != null) {
-      image = `<img src="${message.image}">`
-    } else {
-      image = ""
-    }
+
+    image = message.image ? `<img src="${message.image}">` : ""
+    // if (message.image != null) {
+    //   image = `<img src="${message.image}">`
+    // } else {
+    //   image = ""
+    // }
 
     let html = `<div class="message">
                   <div class="message__upper-info">
@@ -19,9 +20,9 @@ $(function() {
                   </div>
                   <p class="message__text">
                     ${message.text}
-                  </p>`
-                  + image
-              + `</div>`
+                  </p>
+                    ${image}
+                </div>`
     return html
   }
 
