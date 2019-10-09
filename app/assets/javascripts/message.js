@@ -3,11 +3,6 @@ $(function() {
     let image = ""
 
     image = message.image ? `<img src="${message.image}">` : ""
-    // if (message.image != null) {
-    //   image = `<img src="${message.image}">`
-    // } else {
-    //   image = ""
-    // }
 
     let html = `<div class="message">
                   <div class="message__upper-info">
