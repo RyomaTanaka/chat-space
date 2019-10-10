@@ -9,6 +9,15 @@ $(function(){
     user_list.append(html);
   }
 
+  function add_chat_member(name, id) {
+    let html_add = `<div class='chat-group-user'>
+                      <input name='group[user_ids][]' type='hidden' value='${id}'>
+                      <p class='chat-group-user__name'>${name}</p>
+                      <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
+                    </div>`
+    user_list.append(html_add);
+  }
+
 
   $('#user-search-field').on("keyup", function() {
     let input = $("#user-search-field").val();
@@ -26,7 +35,6 @@ $(function(){
         users.forEach(function(user) {
           buildHTML(user)
         });
-        console.log(users.length);
       } else {
         alert('該当するユーザーがいません');
       }
@@ -35,5 +43,16 @@ $(function(){
     .fail(function(users) {
       alert('ユーザー検索に失敗しました')
     })
+  })
+
+  $(user_list).on("click", '.chat-group-user__btn--add', function() {
+    let id = $(this).attr('data-user-id');
+    let name = $(this).siblings('.chat-group-user__name').text();
+    add_chat_member(name, id);
+    $(this).parent().remove();
+  })
+  
+  $(user_list).on("click", '.js-remove-btn', function() {
+    $(this).parent().remove();
   })
 })
