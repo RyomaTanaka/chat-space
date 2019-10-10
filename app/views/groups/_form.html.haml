@@ -3,7 +3,7 @@
     = render 'group_error'
   .chat-group-form__field
     .chat-group-form__field--left
-      = f.label :name, class: "chat-group-form__label"
+      = f.label :name, class: "chat-group-form__label", value: 'グループ名'
     .chat-group-form__field--right
       = f.text_field :name, id: "chat_group_name", class: "chat-group-form__input", placeholder: "グループ名を入力してください"
   .chat-group-form__field
@@ -17,6 +17,13 @@
     .chat-group-form__field--left
       %label.chat-group-form__label チャットメンバー
     .chat-group-form__field--right
+      #user-add-result
+        - group.users.each do |user|
+          .chat-group-user
+            %input{name: 'group[user_ids][]', type: 'hidden', value: "#{user.id}"}
+            %p.chat-group-user__name
+              = user.name
+            .user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 削除
   .chat-group-form__field
     .chat-group-form__field--left
     .chat-group-form__field--right

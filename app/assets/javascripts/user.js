@@ -1,5 +1,6 @@
 $(function(){
   let user_list = $('#user-search-result');
+  let user_add_list = $('#user-add-result');
 
   function buildHTML(user) {
     let html = `<div class="chat-group-user clearfix">
@@ -15,7 +16,7 @@ $(function(){
                       <p class='chat-group-user__name'>${name}</p>
                       <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
                     </div>`
-    user_list.append(html_add);
+    user_add_list.append(html_add);
   }
 
 
@@ -52,7 +53,7 @@ $(function(){
     $(this).parent().remove();
   })
   
-  $(user_list).on("click", '.js-remove-btn', function() {
+  $(user_add_list).on("click", '.js-remove-btn', function() {
     $(this).parent().remove();
   })
 })
