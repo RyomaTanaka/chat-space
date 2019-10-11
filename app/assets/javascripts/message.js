@@ -4,7 +4,7 @@ $(function() {
 
     image = message.image ? `<img src="${message.image}">` : ""
 
-    let html = `<div class="message">
+    let html = `<div class="message" data-message-id="${message.id}">
                   <div class="message__upper-info">
                     <p class="message__upper-info__talker">
                       ${message.name}
@@ -64,5 +64,9 @@ $(function() {
     .fail(function() {
       console.log('error');
     })
+  }
+
+  let reloadMessage = function() {
+    last_message_id = $('.message:last').data('message-id')
   }
 })
