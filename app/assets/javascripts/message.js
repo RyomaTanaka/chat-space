@@ -87,7 +87,7 @@ $(function() {
     })
     
     .fail(function() {
-      alert('自動更新に失敗しました');
+      console.log('自動更新に失敗しました');
     })
   }
 
